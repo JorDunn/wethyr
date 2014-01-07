@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Wethyr, the friendly weather service</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="//cdn.nodetwo.com/libs/foundation/css/normalize.css">
+  		<link rel="stylesheet" href="//cdn.nodetwo.com/libs/foundation/css/foundation.css">
+  		<script src="//cdn.nodetwo.com/libs/foundation/js/vendor/modernizr.js"></script>
+  		<style>
+  			header {
+  				padding: 30px 0px 30px 0px;
+  			}
+  		</style>
+  	</head>
+  	<body>
+  		<div class="container">
+  			<header class="row">
+  				<div class="large-6 columns">
+	  				<h1><a href="/">Wethyr</a></h1>
+  					<p>The friendly weather service</p>
+  				</div>
+  				<div class="large-6 columns">
+  					<h2>{{ city }}, {{ country }}</h2>
+  				</div>
+  			</header>
+  			<div class="row">
+  				<div class="large-12 columns">
+  					<form method="POST" action="/">
+  						<div class="large-4 columns">
+  							<label>City</label>
+  							<input type="text" placeholder="Shakopee" name="city" />
+  						</div>
+  						<div class="large-4 columns">
+  							<label>Country</label>
+  							<input type="text" placeholder="US" name="country" />
+  						</div>
+  						<div class="large-2 columns">
+  							<label>Units</label>
+  							<select name="units">
+  								<option value="imperial">Imperial</option>
+  								<option value="metric">Metric</option>
+  							</select>
+  						</div>
+  						<div class="large-2 columns">
+	  						<button class="button radius" type="submit">Go</button>
+	  					</div>
+  					</form>
+  				</div>
+  			</div>
+  			<br/><br/>
+  			<div class="row">
+  				<div class="small-4 large-4 columns">
+  					<img src="//cdn.nodetwo.com/imgs/wethyr/{{ sky }}.svg" alt="{{ sky_desc }}" width="200px" height="200px" title="{{ sky_desc }}"/>
+  				</div>
+  				<div class="small-4 large-4 columns">
+  					<h3>Current Temperature {{ temp }}&deg;F</h3>
+  					<br/>
+  					<!--<h4>Todays High: {{ temp_hi }}&deg;F</h4>
+  					<h4>Todays Low: {{ temp_low }}&deg;F</h4>-->
+  				</div>
+  				<div class="small-4 large-4 columns">
+  					<h5>Humidity: {{ humidity }}%</h5>
+  					<h5>Pressure: {{ pressure }} hPa</h5>
+  					<h5>Wind: {{ wind_speed }}mph {{ wind_direction }}</h5>
+  					<h5>Conditions: {{ sky_desc }}</h5>
+  				</div>
+  			</div>
+  		</div>
+  		<div>
+  			<script src="//cdn.nodetwo.com/libs/foundation/js/vendor/jquery.js"></script>
+  			<script src="//cdn.nodetwo.com/libs/foundation/js/foundation.min.js"></script>
+  			<script>
+    			$(document).foundation();
+  			</script>
+  		</div>
+  	</body>
+</html>
