@@ -52,7 +52,12 @@ def index(city='Shakopee', country='US', units='imperial'):
 		sky_desc = weather['weather'][0]['description']
 		sky_desc = sky_desc.title()
 
-		return render_template('index.html', city=city, country=country, temp=temp, temp_hi=temp_hi, temp_low=temp_low, humidity=humidity, pressure=pressure, wind_speed=wind_speed, wind_direction=wind_direction, sky=sky, sky_desc=sky_desc)
+		if(units == 'imperial'):
+			flag = 'F'
+		else:
+			flag = 'C'
+
+		return render_template('index.html', city=city, country=country, temp=temp, temp_hi=temp_hi, temp_low=temp_low, humidity=humidity, pressure=pressure, wind_speed=wind_speed, wind_direction=wind_direction, sky=sky, sky_desc=sky_desc, flag=flag)
 
 @app.route('/<city>/<country>/<units>', methods=['GET'])
 def getWeather(city='Shakopee', country='US', units='imperial'):
@@ -74,7 +79,12 @@ def getWeather(city='Shakopee', country='US', units='imperial'):
 	sky      = weather['weather'][0]['main']
 	sky_desc = weather['weather'][0]['description']
 
-	return render_template('index.html', city=city, country=country, temp=temp, temp_hi=temp_hi, temp_low=temp_low, humidity=humidity, pressure=pressure, wind_speed=wind_speed, wind_direction=wind_direction, sky=sky, sky_desc=sky_desc)
+	if(units == 'imperial'):
+		flag = 'F'
+	else:
+		flag = 'C'
+
+	return render_template('index.html', city=city, country=country, temp=temp, temp_hi=temp_hi, temp_low=temp_low, humidity=humidity, pressure=pressure, wind_speed=wind_speed, wind_direction=wind_direction, sky=sky, sky_desc=sky_desc, flag=flag)
 
 if __name__ == '__main__':
 	app.run()
