@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Wethyr, the friendly weather service</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="//cdn.nodetwo.com/libs/foundation/css/normalize.css">
+  		<link rel="stylesheet" href="//cdn.nodetwo.com/libs/foundation/css/foundation.css">
+  		<script src="//cdn.nodetwo.com/libs/foundation/js/vendor/modernizr.js"></script>
+  		<style>
+  			header {
+  				padding: 30px 0px 30px 0px;
+  			}
+        </style>
+        <script>
+			if("geolocation" in navigator) {
+                var watchID = navigator.geolocation.watchPosition(function(position) {
+                    navigator.geolocation.clearWatch(watchID);
+                    window.location = '/lat/' + position.coords.latitude + '/lon/' + position.coords.longitude + '/imperial';
+                });
+            }
+        </script>
+    </head>
+    <body>
+    	<div class="container">
+  			<header class="row">
+  				<div class="large-6 columns">
+	  				<h1><a href="/">Wethyr</a></h1>
+  					<p>The friendly weather service</p>
+  				</div>
+  			</header>
+            <div class="row">
+                <h1>Please Wait...</h1>
+                <p>... while we harvest your coordinates</p>
+            </div>
+  		</div>
+  	</body>
+</html>
+
+    </body>
+</html>

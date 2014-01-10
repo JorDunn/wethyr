@@ -21,7 +21,8 @@
   					<p>The friendly weather service</p>
   				</div>
   				<div class="large-6 columns">
-  					<h2>{{ city }}, {{ country }}</h2>
+  					<h3>{{ city }}, {{ country }}</h3>
+                    <p><a href="/coords">Get current location</a></p>
   				</div>
   			</header>
   			<div class="row">
@@ -51,7 +52,7 @@
   			<br/><br/>
   			<div class="row">
   				<div class="small-4 large-4 columns">
-  					<img src="//cdn.nodetwo.com/imgs/wethyr/{{ sky }}.svg" alt="{{ sky_desc }}" width="200px" height="200px" title="{{ sky_desc }}"/>
+  					<img src="//cdn.nodetwo.com/imgs/wethyr/{{ sky }}.png" alt="{{ sky_desc }}" width="200px" height="200px" title="{{ sky_desc }}"/>
   				</div>
   				<div class="small-4 large-4 columns">
   					<h3>Current Temperature<br/>{{ temp }}&deg;{{ flag }}</h3>
@@ -75,7 +76,7 @@
   			<script src="//cdn.nodetwo.com/libs/foundation/js/vendor/jquery.js"></script>
   			<script src="//cdn.nodetwo.com/libs/foundation/js/foundation.min.js"></script>
   			<script>
-    			$(document).foundation();
+	    			$(document).foundation();
   			</script>
   		</div>
   	</body>
