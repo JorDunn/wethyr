@@ -6,7 +6,7 @@ import json, requests, dis, operator, time
 
 app = Flask(__name__)
 
-app.debug = True
+app.debug = False
 
 class Wethyr(object):
 
