@@ -3,6 +3,7 @@
 
 from flask import *
 import json, requests, dis, operator, time
+from werkzeug.contrib.fixers import ProxyFix
 
 app = Flask(__name__)
 
@@ -95,7 +96,7 @@ def getWeatherByCity(city='Shakopee', country='US', units='imperial'):
 
 	return render_template('index.html', city=weather['city'], country=weather['country'], temp=weather['temp'], humidity=weather['humidity'], pressure=weather['pressure'], wind_speed=weather['wind_speed'], wind_direction=weather['wind_direction'], sky=sky, sky_desc=weather['sky_desc'], flag=flag)
 
-@app.route('/lat/<lat>/lon/<lon>/<units>', methods=['GET'])
+@app.route('/<lat>/<lon>/<units>', methods=['GET'])
 def getWeatherByCoords(lat, lon, units='imperial'):
 	url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=' + units
 
@@ -123,5 +124,7 @@ def getWeatherByCoords(lat, lon, units='imperial'):
 def getCoords():
 	return render_template('coords.html')
 
+app.wsgi_app = ProxyFix(app.wsgi_app)
+
 if __name__ == '__main__':
-	app.run('0.0.0.0', 7070)
+	app.run()
